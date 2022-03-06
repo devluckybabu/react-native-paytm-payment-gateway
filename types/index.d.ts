@@ -65,6 +65,7 @@ declare class paytmConfig {
         currency: "INR" | "USD";
     }) => Promise<unknown>;
     getPaymentOptions: (orderId: string) => Promise<unknown>;
+    getOffers: () => Promise<unknown>;
 }
 declare const paytm: {
     config: typeof paytmConfig;

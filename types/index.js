@@ -14,7 +14,7 @@ class paytmConfig {
         this.getTxnToken = ({ productInfo, amount, user, orderId, userId }) => {
             return new Promise((resolve, reject) => {
                 const product = productInfo && typeof productInfo == "object" ? Object.assign({ orderId, price: amount, currency: 'INR' }, productInfo) : '';
-                const data = { amount, orderId, userId, user, productInfo: product };
+                const data = { amount, orderId, userId, user: Object.assign(Object.assign({}, user), { userId }), productInfo: product };
                 this.call('/payment/create', data)
                     .then((result) => resolve(result))
                     .catch((error) => reject(error));
@@ -28,14 +28,13 @@ class paytmConfig {
             return paytm_allinone_react_native_1.default.startTransaction(orderId, this.merchantId, txnToken, String(amount), callbackUrl, isStaging, restrictAppInvoke, '');
         };
         this.getPaymentStatus = (options) => this.call('/payment/status', options);
-        this.getRefundStatus = (options) => {
-            return this.call('/payment/refund/status', options);
-        };
+        this.getRefundStatus = (options) => this.call('/refund/status', options);
         this.requestRefund = (options) => {
             return this.call('/refund/request', options);
         };
         this.updateTransaction = (options) => this.call('/payment/update', options);
         this.getPaymentOptions = (orderId) => this.call('/payment/options', { orderId });
+        this.getOffers = () => this.call('/offers', {});
         this.merchantKey = config.key;
         this.merchantId = config.mid;
         this.mode = config.mode;

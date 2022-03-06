@@ -1,6 +1,5 @@
 "use strict";
-// const url = "https://react-native-paytm-gateway.herokuapp.com/api";
-const url = "http:192.168.42.194:3001/api";
+const url = "https://react-native-paytm-gateway.herokuapp.com/api";
 
 const convert = (result: any) => {
   const json_data = JSON.parse(result);
