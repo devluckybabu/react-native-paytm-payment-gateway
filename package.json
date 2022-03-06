@@ -1,0 +1,30 @@
+{
+  "name": "react-native-paytm-payment-gateway",
+  "version": "1.0.7",
+  "types": "./types/**/*.d.ts",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "paytm_allinone_react-native": "^1.1.0",
+    "react": "17.0.2",
+    "react-native": "0.67.3"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "typescript": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devluckybabu/react-native-paytm-payment-gateway"
+  },
+  "keywords": [
+    "paytm",
+    "payment gateway",
+    "react native"
+  ],
+  "author": "Lucky Babu",
+  "license": "ISC"
+}
